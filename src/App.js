@@ -6,7 +6,6 @@ import ZipSearch from './components/zipSearch';
 import WeatherCard from './components/weatherCard';
 // d35e9be47f58e6445fb0227b42fdeed2
 
-// var date = new Date().getDay();
 
 function App() {
   const [isloading, setLoading] = useState(true);
