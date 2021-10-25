@@ -3,7 +3,7 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import ZipSearch from './components/zipSearch';
-import WeatherCard from './components/weatherCard';
+import WeatherCard from './components/WeatherCard/weatherCard';
 // d35e9be47f58e6445fb0227b42fdeed2
 
 
@@ -32,7 +32,7 @@ function App() {
   if(isloading){
     
   }else{
-    arr.push(<h2>{weather.city.name}</h2>)
+    // arr.push(<h2>{weather.city.name}</h2>)
     
     for(let i =5; i < 40; i+=8){
       arr.push( <WeatherCard weather={weather.list[i]} date = {date++}/> )
@@ -45,7 +45,10 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>5-day Forecast</h1>
+        {!isloading ? <h2>{weather.city.name}</h2> : ''}  
+        <div style = {{display: 'flex', justifyContent: 'center'}}>
         {arr}
+        </div>
       </header>
 
       <ZipSearch />
