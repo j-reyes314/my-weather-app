@@ -2,8 +2,9 @@ import logo from './logo.svg';
 import './App.css';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import ZipSearch from './components/zipSearch';
+import ZipSearch from './components/ZipSearch/zipSearch';
 import WeatherCard from './components/WeatherCard/weatherCard';
+import { Skeleton } from '@mui/material';
 // d35e9be47f58e6445fb0227b42fdeed2
 
 
@@ -26,18 +27,30 @@ function App() {
       fetchData()
   }, [])
 
+  function zipWeather(zip) {
+    // async () => { const result  = await axios.get()
+    //   .then(function (resp) {
+    //     setWeather(resp);
+    //   })}
+  }
+
   let arr=[];
 
 
   if(isloading){
-    
+    for(let i =5; i < 40; i+=8){
+      arr.push(<Skeleton variant="rectangular" width={210} height={118} />)
+    }
+
   }else{
-    // arr.push(<h2>{weather.city.name}</h2>)
+    arr = [];
     
     for(let i =5; i < 40; i+=8){
       arr.push( <WeatherCard weather={weather.list[i]} date = {date++}/> )
     }
   }
+
+
 
 
 
@@ -51,7 +64,7 @@ function App() {
         </div>
       </header>
 
-      <ZipSearch />
+      <ZipSearch search={zipWeather} />
     </div>
   );
 }

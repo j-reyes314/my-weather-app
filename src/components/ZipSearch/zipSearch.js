@@ -1,4 +1,5 @@
 import { useState } from "react"
+import './ZipSearch.css'
 
 
 
@@ -14,7 +15,7 @@ export default function ZipSearch (props) {
     }
 
     return(
-        <div>
+        <div className ='search'>
             <p>Can't find your city? Search with your zip code!</p>
             <form onSubmit={handleSubmit}>
                 <input type="text" name="zip" value={zip} onChange ={event => setZip(event.target.value)} />

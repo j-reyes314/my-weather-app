@@ -1,4 +1,5 @@
 import { useState } from "react";
+import {Card} from '@mui/material';
 import './WeatherCard.css'
 import {ReactComponent as Clear} from '../../assets/clear-day.svg';
 import {ReactComponent as Drizzle} from '../../assets/drizzle.svg';
@@ -31,11 +32,12 @@ export default function WeatherCard (props) {
 
     return(
         <div>
-            {icon}
-        <h3>{week[props.date]}</h3>
-       <p>{weather.main.temp} &deg;F</p>
-
-            <h6>{weather.weather[0].description}</h6>
+            <Card  sx ={{margin: '1em', minWidth: 200}} raised ={true}>
+                {icon}
+                <h3>{week[props.date]}</h3>
+                <p>{weather.main.temp} &deg;F</p>
+                <h6>{weather.weather[0].description}</h6>
+            </Card>
         </div>
        
     )
