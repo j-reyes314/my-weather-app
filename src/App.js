@@ -11,27 +11,27 @@ import { Skeleton } from '@mui/material';
 function App() {
   const [isloading, setLoading] = useState(true);
   const [weather, setWeather] = useState([]);
+  const [query,setQuery] = useState('id=5128638');
+
+
   var date = new Date().getDay();
 
-
-  console.log(date);
-  useEffect(() => {
-    const fetchData = ( async () => {const result = await axios.get('https://api.openweathermap.org/data/2.5/forecast?id=5128638&units=imperial&appid=d35e9be47f58e6445fb0227b42fdeed2')
+  const fetchData = ( async (query) => {const result = await axios.get(`https://api.openweathermap.org/data/2.5/forecast?${query}&units=imperial&appid=d35e9be47f58e6445fb0227b42fdeed2`)
       .then(function (response) {      
         setWeather(response.data);
         setLoading(false);
 
         console.log(response.data);
       })})
-    
-      fetchData()
-  }, [])
 
-  function zipWeather(zip) {
-    // async () => { const result  = await axios.get()
-    //   .then(function (resp) {
-    //     setWeather(resp);
-    //   })}
+  useEffect(() => {
+    
+    fetchData(query);
+
+  }, [query])
+
+  function searchZip(zip) {
+    setQuery(`zip=${zip}`);
   }
 
   let arr=[];
@@ -50,10 +50,6 @@ function App() {
     }
   }
 
-
-
-
-
   return (
     <div className="App">
       <header className="App-header">
@@ -64,7 +60,7 @@ function App() {
         </div>
       </header>
 
-      <ZipSearch search={zipWeather} />
+      <ZipSearch search={searchZip} />
     </div>
   );
 }

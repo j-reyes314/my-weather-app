@@ -3,14 +3,14 @@ import './ZipSearch.css'
 
 
 
-export default function ZipSearch (props) {
+export default function ZipSearch ({search}) {
     const [zip, setZip] = useState('')
 
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        props.search(zip);
+        search(zip);
         setZip('');
     }
 

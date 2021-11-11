@@ -28,6 +28,9 @@ export default function WeatherCard (props) {
         case 'Clear':
             icon = <Clear/>
             break;
+        case 'Snow':
+            icon = <Snow/>
+            break;
     }
 
     return(
