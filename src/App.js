@@ -16,7 +16,7 @@ function App() {
 
   console.log(date);
   useEffect(() => {
-    const fetchData = ( async () => {const result = await axios.get('http://api.openweathermap.org/data/2.5/forecast?id=5128638&units=imperial&appid=d35e9be47f58e6445fb0227b42fdeed2')
+    const fetchData = ( async () => {const result = await axios.get('https://api.openweathermap.org/data/2.5/forecast?id=5128638&units=imperial&appid=d35e9be47f58e6445fb0227b42fdeed2')
       .then(function (response) {      
         setWeather(response.data);
         setLoading(false);
