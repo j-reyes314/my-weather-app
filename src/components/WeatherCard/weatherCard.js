@@ -33,13 +33,17 @@ export default function WeatherCard (props) {
             break;
     }
 
+    function Capitalize(str) {
+       return str = str.split(' ').map((s) => s.charAt(0).toUpperCase() + s.substring(1)).join(' ');
+    }
+
     return(
         <div>
             <Card  sx ={{margin: '1em', minWidth: 200}} raised ={true}>
                 {icon}
                 <h3>{week[props.date]}</h3>
                 <p>{weather.main.temp} &deg;F</p>
-                <h6>{weather.weather[0].description}</h6>
+                <h6>{Capitalize(weather.weather[0].description)}</h6>
             </Card>
         </div>
        
