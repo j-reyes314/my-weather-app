@@ -7,6 +7,7 @@ import {ReactComponent as Overcast} from '../../assets/overcast.svg';
 import {ReactComponent as Rain} from '../../assets/rain.svg';
 import {ReactComponent as Snow} from '../../assets/snow.svg';
 import {ReactComponent as Storm} from '../../assets/thunderstorms.svg';
+import { CardActionArea } from '@mui/material';
 
 
 export default function WeatherCard (props) {
@@ -40,10 +41,12 @@ export default function WeatherCard (props) {
     return(
         <div>
             <Card  sx ={{margin: '1em', minWidth: 200}} raised ={true}>
-                {icon}
-                <h3>{week[props.date]}</h3>
-                <p>{weather.main.temp} &deg;F</p>
-                <h6>{Capitalize(weather.weather[0].description)}</h6>
+                <CardActionArea >
+                    {icon}
+                    <h3>{week[props.date]}</h3>
+                    <p>{weather.main.temp} &deg;F</p>
+                    <h6>{Capitalize(weather.weather[0].description)}</h6>
+                </CardActionArea>
             </Card>
         </div>
        
