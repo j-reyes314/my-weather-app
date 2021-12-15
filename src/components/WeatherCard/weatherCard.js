@@ -15,8 +15,8 @@ export default function WeatherCard (props) {
     console.log(weather);
     const[week, setWeek] = useState(['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday', 'Sunday'])
     const[weatherType, setType] = useState(weather.weather[0].main)
-    console.log(weather.weather[0].main)
-    console.log(week[props.date])
+    // console.log(weather.weather[0].main)
+    // console.log(week[props.date])
 
     var icon = <div></div>;
     switch(weatherType) {
@@ -38,12 +38,13 @@ export default function WeatherCard (props) {
        return str = str.split(' ').map((s) => s.charAt(0).toUpperCase() + s.substring(1)).join(' ');
     }
 
+    console.log(props.date)
     return(
         <div>
             <Card  sx ={{margin: '1em', minWidth: 200}} raised ={true}>
                 <CardActionArea >
                     {icon}
-                    <h3>{week[props.date]}</h3>
+                    <h3>{props.date > 6 ? week[0]: week[props.date]}</h3>
                     <p>{weather.main.temp} &deg;F</p>
                     <h6>{Capitalize(weather.weather[0].description)}</h6>
                 </CardActionArea>
