@@ -18,7 +18,6 @@ export default function Home (props) {
       .then(function (response) {      
         setWeather(response.data);
         setLoading(false);
-
         console.log(response.data);
       })})
 
@@ -37,28 +36,29 @@ export default function Home (props) {
 
   if(isloading){
     for(let i =5; i < 40; i+=8){
-      arr.push(<Skeleton variant="rectangular" width={210} height={118} />)
+      arr.push(<Skeleton key= {i} variant="rectangular" width={210} height={118} />)
     }
 
   }else{
     arr = [];
-    
+
     for(let i =5; i < 40; i+=8){
-      arr.push( <WeatherCard weather={weather.list[i]} date = {date++}/> )
+      arr.push( <WeatherCard key={weather.list[i].dt} weather={weather.list[i]} date = {date++}/> )
     }
   }
 
 
 return (<div className="App">
         <header className="App-header">
-          <h1>5-day Forecast</h1>
+        <h1 style={{padding:'0'}}>5-day Forecast</h1>
           {!isloading ? <h2>{weather.city.name}</h2> : ''}  
           <div style = {{display: 'flex', justifyContent: 'center'}}>
           {arr}
           </div>
-        </header>
 
         <ZipSearch search={searchZip} />
+        </header>
+        
       </div>
 )
 }
