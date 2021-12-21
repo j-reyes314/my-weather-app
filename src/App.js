@@ -21,9 +21,9 @@ function App() {
               <Home/>
             </Route>
 
-            {/* <Route path ="/my-weather-app/:id">
+            <Route path ="/:id">
               <DayWeather/>
-            </Route> */}
+            </Route>
 
             <Route>
               <Error/>
