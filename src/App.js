@@ -17,7 +17,7 @@ function App() {
           
           <Switch>
 
-            <Route path="/"   exact>
+            <Route path="/my-weather-app"   exact>
               <Home/>
             </Route>
 
