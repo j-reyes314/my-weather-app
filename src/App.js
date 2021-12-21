@@ -17,13 +17,13 @@ function App() {
           
           <Switch>
 
-            <Route path="/" exact>
+            <Route path="/"   exact>
               <Home/>
             </Route>
 
-            <Route path ="/:id">
+            {/* <Route path ="/my-weather-app/:id">
               <DayWeather/>
-            </Route>
+            </Route> */}
 
             <Route>
               <Error/>
